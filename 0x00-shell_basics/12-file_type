@@ -1,2 +1,2 @@
 #!/bin/bash
-file /tmp/iamafile #type is used to determine how a word is interpreted by the shell, while file is used to determine the type of a file based on its content
+file /tmp/iamafile #type is used to determine how a word is interpreted by the shell(built in - alias - shell function - excutable file)(for commands more), while file (for files more) is used to determine the type of a file based on its content(text file, a binary file, a symbolic link, a directory)
