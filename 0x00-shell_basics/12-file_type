@@ -1,2 +1,2 @@
 #!/bin/bash
-type /tmp/iamafile
+file /tmp/iamafile #type is used to determine how a word is interpreted by the shell, while file is used to determine the type of a file based on its content
