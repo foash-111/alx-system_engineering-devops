@@ -1,2 +1,2 @@
 #!/bin/bash
-chown -h vincent:staff _hello
+chown -h vincent:staff _hello #The -h option in the chown command stands for "no dereference". it means that symbolic links are treated as such and not followed. So, if _hello is a symbolic link, chown -h vincent:staff _hello will change the owner and group of the symbolic link itself, not the file it points to.
