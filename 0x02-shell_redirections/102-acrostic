@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -c 1 | paste -s -d ''
+head -n 1 | cut -d " " -f1 | tr [a-z] [A-z] 
