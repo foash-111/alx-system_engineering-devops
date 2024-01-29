@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod -R +X .
+chmod -R +X . # (X) execute/search only if the file is a directory or already has execute permission for some user
