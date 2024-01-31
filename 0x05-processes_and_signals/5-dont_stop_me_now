@@ -2,4 +2,4 @@
 # Bash script that stops anthor running process
 
 pid=$(pgrep -f "4-to_infinity_and_beyond")
-kill $pid
+kill "$pid"
