@@ -1,1 +1,3 @@
 #!/usr/bin/env bash
+#ping is a computer network administration software utility used to test the reachability of a host on an Internet Protocol (IP)
+ping -c 5 $1
