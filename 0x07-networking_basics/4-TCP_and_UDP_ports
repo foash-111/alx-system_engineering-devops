@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
-#tcp, udp ports
-
+# netstat prints information about the Linux networking subsystem.
+#  netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+# tcp, udp ports..1030 is a port,...(10.1.1.2 , TCP , port 1030) is a socket.
+# -l Show only listening sockets # -p Show the PID and name of the program to which each socket belongs.
+netstat -l -p 
