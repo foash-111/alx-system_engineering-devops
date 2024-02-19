@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 #chang ip address for my local machine and facebook.com
 
 sed 's/192.168.1.1  localhost/192.168.1.1   localhost/g' /etc/hosts
