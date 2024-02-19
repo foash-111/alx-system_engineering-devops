@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #chang ip address for my local machine and facebook.com
 
-sed -i 's/192.168.1.1        localhost/192.168.1.2   localhost/g' /etc/hosts
+sed -i 's/127.0.0.1        localhost/127.0.0.2   localhost/g' /etc/hosts
 sed -i 's/157.240.11.35        facebook.com/8.8.8.8 facebook.com/g' /etc/hosts
 
 #192.168.1.2	localhost
