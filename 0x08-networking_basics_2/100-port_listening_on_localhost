@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # netcat nc command to make connections between hosts
-nc -4 localhost 80
+# Write a Bash script that listens on port 98 on localhost.
+nc -4 localhost 98
