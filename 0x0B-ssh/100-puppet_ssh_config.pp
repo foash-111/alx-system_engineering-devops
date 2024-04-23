@@ -1,6 +1,7 @@
 # configuration file
-file { 'config':
+
+file { '/root/.ssh/config':
   ensure  => 'present',
-  path    => '/etc/ssh/ssh_config',
-  content => 'Host *\n\tIdentityFile ~/.ssh/school\n\tPasswordAuthentication no\n'
+  mode    => '0600',
+  content => 'Host *\n\t IdentityFile ~/.ssh/school\n\t PasswordAuthentication no'
 }
