@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 # configure ssh configuration file  that you can connect to a server without typing a password.
-ssh-add ~/.ssh/school
+
+# ssh-add ~/.ssh/school 
+# which is used to add SSH private keys into the SSH authentication agent (ssh-agent).
+#This process enables single sign-on with SSH, allowing users to access multiple servers across different organizations without having to enter a password each time they switch servers.
+#However, this command does not configure the SSH client to refuse password authentication or specify a private key for a particular server.
+
+Host *
+    identityFile ~/.ssh/school
+    PasswordAuthentication no
