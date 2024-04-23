@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # configure ssh configuration file  that you can connect to a server without typing a password.
 
+eval $(ssh-agent)
 ssh-add ~/.ssh/school
