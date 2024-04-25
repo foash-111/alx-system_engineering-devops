@@ -5,13 +5,8 @@
 # scp -i /path/to/private/key myfile.txt user@remote:/path/to/destination
 
 # -n checks if the third argument ($3) is not empty.
-i=0
 
-for i in $@
-do 
-((i++))
-done 
-if [ "$i" -lt 5 ]
+if [ "$#" -lt 3 ]
 then
     echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
 else
