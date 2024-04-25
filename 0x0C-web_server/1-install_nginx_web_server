@@ -1,1 +1,9 @@
 #!/usr/bin/env bash
+# install nginx and update its welcome file
+
+sudo apt-get update
+sudo apt-get install nginx -y
+nano /var/www/html/index.html
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example
+sudo nano /etc/nginx/sites-available/example
+sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
