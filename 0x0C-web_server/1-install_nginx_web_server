@@ -3,7 +3,7 @@
 
 sudo apt-get update
 sudo apt-get install nginx -y
-sudo nano /var/www/html/index.html
+sudo echo "<h1>Hello World!</h1>" >> index.html
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example
-sudo nano /etc/nginx/sites-available/example
+sed -i "s/server_name _/ server_name 52.91.182.174/g" /etc/nginx/sites-available/example
 sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
