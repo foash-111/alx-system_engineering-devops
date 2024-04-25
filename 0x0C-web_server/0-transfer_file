@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Bash script that transfers a file from our client to a server:
 # to copy a file to remote server:
 # scp myfile.txt user@remote:/path/to/destination
