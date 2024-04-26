@@ -2,9 +2,11 @@
 # redirect user to anther website
 
 sudo service nginx start
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example
 
-sudo sed -i "30i\       location    /redirect_me { return 301 https:www.youtube.com; }" /etc/nginx/sites-available/example
+sudo sed -i "47i\       location    /redirect_me { return 301 https:www.youtube.com; }" /etc/nginx/sites-available/example
 
+sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
 
 #will insert the following after 25i\ in the line 25 in the file
 
