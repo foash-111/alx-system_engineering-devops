@@ -2,13 +2,9 @@
 # redirect user to anther website
 
 old_pattern="location /"
-new_pattern="location /redirect_me {
-    return 301 https://www.youtube.com/;
-}
-redirect /
-"
+new_pattern="location /redirect_me {\n\treturn 301 https://www.youtube.com/;\n\t}\n\tlocation /"
 
-sed -i "s/$old_pattern/$new_pattern/g" /etc/nginx/sites-available/example
+sed -i "s/${old_pattern}/${new_pattern}/g" /etc/nginx/sites-available/example
 
 sudo service nginx restart
 
