@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# error page with a massage
+echo "<h1>Ceci n'est pas une page</h1>" >> /var/www/html/custom_error.html
+
+ echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
+sudo sed -i '45i\	    error_page 404 /error_404.html;' /etc/nginx/sites-available/example
+#  location /redirect_me {
+#                 return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+#         }
+
+#         error_page 404 /custom_error.html;
+
+
+#         location = /custom_error.html {
+#                 root /var/www/html;
+#                 internal;
+#         }
