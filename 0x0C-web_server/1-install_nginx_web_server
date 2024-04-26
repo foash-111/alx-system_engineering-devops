@@ -8,3 +8,4 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example
 sed -i "s/server_name _/ server_name 52.91.182.174/g" /etc/nginx/sites-available/example
 sed -i "s/80 default_server/80/g" /etc/nginx/sites-available/example
 sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
+sudo service nginx restart
