@@ -2,7 +2,7 @@
 # redirect user to anther website
 
 old_pattern="location"
-new_pattern="location /redirect_me {\n\treturn 301 https://www.youtube.com/;\n\t}\n\tlocation"
+new_pattern="location /redirect_me {\n\t return 301 https://www.youtube.com;\n\t}\n\tlocation"
 
 
 sudo apt-get update
