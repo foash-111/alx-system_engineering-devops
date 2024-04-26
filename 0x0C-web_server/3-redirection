@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 # redirect user to anther website
 
-old_pattern="location"
-new_pattern="location /redirect_me {\n\t return 301 https://www.youtube.com;\n\t}\n\tlocation"
+sudo service nginx start
+
+sudo sed -i "30i\       location    /redirect_me { return 301 https:www.youtube.com; }" /etc/nginx/sites-available/example
 
 
-sudo apt-get update
-sudo apt-get install nginx -y
-sudo echo "<h1>Hello World!</h1>" >> /var/www/html/index.html
-sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example
-sed -i "s/server_name _/ server_name 52.91.182.174/g" /etc/nginx/sites-available/example
-sed -i "s/80 default_server/80/g" /etc/nginx/sites-available/example
+#will insert the following after 25i\ in the line 25 in the file
 
-sed -i "s/${old_pattern}/${new_pattern}/g" /etc/nginx/sites-available/example
-sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
-sudo service nginx restart
+
+if pgrep -x "nginx" > /dev/null; then
+    echo "Nginx is running. Restarting..."
+    sudo service nginx restart
+else
+    echo "Nginx is not running. Starting..."
+    sudo service nginx start
+fi
  
