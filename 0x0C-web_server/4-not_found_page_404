@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
 # error page with a massage
 sudo echo "<h1>Ceci n'est pas une page</h1>" >> /var/www/html/custom_error.html
-sudo sed -i '45i\	    error_page 404 /error_404.html;' /etc/nginx/sites-available/example
+
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example
+
+sudo sed -i '48i\	    error_page 404 /error_404.html;' /etc/nginx/sites-available/example
+
+sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
+
+if pgrep -x "nginx" > /dev/null; then
+    echo "Nginx is running. Restarting..."
+    sudo service nginx restart
+else
+    echo "Nginx is not running. Starting..."
+    sudo service nginx start
+fi
+
 #  location /redirect_me {
 #                 return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 #         }
