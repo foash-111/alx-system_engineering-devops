@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # redirect user to anther website
 
-old_pattern="location /"
-new_pattern="location /redirect_me {\n\treturn 301 https://www.youtube.com/;\n\t}\n\tlocation /"
+old_pattern="location"
+new_pattern="location /redirect_me {\n\treturn 301 https://www.youtube.com/;\n\t}\n\tlocation"
 
 
 sudo apt-get update
