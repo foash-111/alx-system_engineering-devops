@@ -4,9 +4,16 @@
 old_pattern="location /"
 new_pattern="location /redirect_me {\n\treturn 301 https://www.youtube.com/;\n\t}\n\tlocation /"
 
+
+sudo apt-get update
+sudo apt-get install nginx -y
+sudo echo "<h1>Hello World!</h1>" >> /var/www/html/index.html
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example
+sed -i "s/server_name _/ server_name 52.91.182.174/g" /etc/nginx/sites-available/example
+sed -i "s/80 default_server/80/g" /etc/nginx/sites-available/example
+
 sed -i "s/${old_pattern}/${new_pattern}/g" /etc/nginx/sites-available/example
 
+sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
 sudo service nginx restart
-
-
  
