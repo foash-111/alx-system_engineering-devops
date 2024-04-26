@@ -1,1 +1,16 @@
 #!/usr/bin/env bash
+# redirect user to anther website
+
+old_pattern="location /"
+new_pattern="location /redirect_me {
+    return 301 https://www.youtube.com/;
+}
+redirect /
+"
+
+sed -i "s/$old_pattern/$new_pattern/g" /etc/nginx/sites-available/example
+
+sudo service nginx restart
+
+
+ 
