@@ -10,12 +10,7 @@ file {'/var/www/html/index.html':
 }
 
 file { '/etc/nginx/sites-available/default':
-  ensure => file
-}
-
-file { '/etc/nginx/sites-enabled/default'
-  ensure  => link,
-  require => ['/etc/nginx/sites-available/default']
+  ensure  => file
   content => "
   server {
     listen 80 default_server;
@@ -26,8 +21,12 @@ file { '/etc/nginx/sites-enabled/default'
     location /redirect_me {
       return 301 https://www.youtube.com/;
     }
-  }
-  
-  "
-
+    "
 }
+
+file { '/etc/nginx/sites-enabled/default'
+  ensure  => link,
+  require => FILE['/etc/nginx/sites-available/default']
+  target  => '/etc/nginx/sites-available/default'
+
+  }
