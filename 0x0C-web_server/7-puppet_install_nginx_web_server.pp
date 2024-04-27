@@ -6,14 +6,14 @@ package { 'nginx':
 }
 
 # Create index.html with "Hello World!" content
-file {"/var/www/html/index.html":
+file {'/var/www/html/index.html':
   ensure  => file,
   content => '<h1>Hello World!</h1>',
 }
 
 # Define Nginx server configuration
 file { '/etc/nginx/sites-available/default':
-  ensure => file,
+  ensure  => file,
   content => "
 server {
   listen 80 default_server;
