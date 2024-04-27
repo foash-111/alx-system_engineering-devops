@@ -6,26 +6,29 @@ package { 'nginx':
 }
 
 # Create index.html with "Hello World!" content
-file {'/var/www/html/index.html':
+file {"/var/www/html/index.html":
   ensure  => file,
   content => '<h1>Hello World!</h1>',
 }
 
 # Define Nginx server configuration
 file { '/etc/nginx/sites-available/default':
-  ensure  => file,
+  ensure => file,
   content => "
 server {
   listen 80 default_server;
   listen [::]:80 default server;
   root /var/www/html;
   index index.html;
-  server_name foash.tech;
+  server_name _;
 
   location /redirect_me {
     return 301 https://www.youtube.com/;
   }
 
+  location / {
+    return 200 'Hello World!';
+  }
 }
 ",
 }
@@ -41,5 +44,5 @@ file { '/etc/nginx/sites-enabled/default':
 service { 'nginx':
   ensure    => running,
   enable    => true,
-  subscribe => File['/etc/nginx/sites-available/default']
+  subscribe => File['/etc/nginx/sites-available/default'],
 }
