@@ -1,29 +1,17 @@
 #!/usr/bin/env bash
 # error page with a massage
-sudo echo "<h1>Ceci n'est pas une page</h1>" >> /var/www/html/custom_error.html
+sudo echo "<h1>Ceci n'est pas une page</h1>" | sudo tee -a /var/www/html/custom_error.html
 
-sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example
-
-sudo sed -i '48i\	    error_page 404 /error_404.html;' /etc/nginx/sites-available/example
-
-sudo ln -s /etc/nginx/sites-available/example /etc/nginx/sites-enabled/
-
-if pgrep -x "nginx" > /dev/null; then
-    echo "Nginx is running. Restarting..."
-    sudo service nginx restart
-else
-    echo "Nginx is not running. Starting..."
-    sudo service nginx start
-fi
-
-#  location /redirect_me {
-#                 return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-#         }
-
-#         error_page 404 /custom_error.html;
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo service nginx start
 
 
-#         location = /custom_error.html {
-#                 root /var/www/html;
-#                 internal;
-#         }
+old_line="server_name _;"
+new_line="server_name foash.tech;\n        location /redirect_me { \n       return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n        }\n        error_page 404 /custom_error.html;\n"
+
+sudo sed -i "s|${old_line}|${new_line}|g" /etc/nginx/sites-enabled/default 
+
+sudo service nginx restart
+service nginx reload
