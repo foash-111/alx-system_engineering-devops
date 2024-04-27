@@ -20,7 +20,7 @@ server {
   listen [::]:80 default server;
   root /var/www/html;
   index index.html;
-  server_name _;
+  server_name foash.tech;
 
   location /redirect_me {
     return 301 https://www.youtube.com/;
