@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # redirect user to anther website
 
-#if nginx not runnig
-if ! pgrep -x "nginx" > /dev/null; then
+sudo apt-get update
+sudo apt-get -y install nginx
 sudo service nginx start
-fi
+sudo service nginx start
+
 
 old_line="server_name _;"
 new_line="server_name foash.tech;\n        location /redirect_me { \n       return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n        }"
