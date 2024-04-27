@@ -12,3 +12,4 @@ new_line="server_name foash.tech;\n        location /redirect_me { \n       retu
 sudo sed -i "s|${old_line}|${new_line}|g" /etc/nginx/sites-enabled/default 
 
 sudo service nginx restart
+service nginx reload
