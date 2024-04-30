@@ -6,8 +6,9 @@ package { 'nginx':
 }
 
 service { 'nginx':
-  ensure => running,
-  name   => 'nginx',
+  ensure  => running,
+  name    => 'nginx',
+  restart => ''
 }
 
 file { '/etc/nginx/sites-enabled/default':
