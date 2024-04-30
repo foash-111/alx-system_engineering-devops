@@ -21,4 +21,4 @@ echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 # This is a multi-line
 # text block.
 # END_OF_TEXT
-sudo service haproxy start
+sudo systemctl restart haproxy
