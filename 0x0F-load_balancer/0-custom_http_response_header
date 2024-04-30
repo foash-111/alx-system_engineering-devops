@@ -7,5 +7,5 @@ sudo service nginx start
 
 
 sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
-
+#a for append after server_name _ line
 sudo service nginx reload
