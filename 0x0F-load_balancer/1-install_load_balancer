@@ -26,4 +26,6 @@ EOF
 # This is a multi-line
 # text block.
 # END_OF_TEXT
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
 sudo systemctl restart haproxy
