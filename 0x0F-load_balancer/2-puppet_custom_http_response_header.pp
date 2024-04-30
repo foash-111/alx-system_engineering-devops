@@ -11,8 +11,9 @@ service { 'nginx':
   restart => ''
 }
 
-file { '/etc/nginx/sites-enabled/default':
+file { 'default':
   ensure  => file,
+  path    => '/etc/nginx/sites-enabled/default'
   content => "
 server {
     listen 80 default_server;
