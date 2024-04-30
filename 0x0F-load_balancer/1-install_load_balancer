@@ -31,7 +31,7 @@ backend servers
 
 echo "ENABLED=1" >> /etc/default/haproxy
 
-sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+#sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 # -c to check for syntax error
 # -f /path/to/file
 sudo service haproxy restart
