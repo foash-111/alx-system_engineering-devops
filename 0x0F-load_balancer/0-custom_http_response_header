@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
-# add_header directive to the server when http header requested
+# error page with a massage
+sudo echo "<h1>Ceci n'est pas une page</h1>" | sudo tee -a /var/www/html/custom_error.html
+sudo echo "<h1>Hello World!</h1>" | sudo tee -a /var/www/html/index.html
 
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
 
-sed -i "/server_name _;/a        add_header X-Served-By $HOSTNAME;\n" /etc/nginx/sites-enabled/default
+
+old_line="server_name _;"
+new_line="server_name foash.tech;\n        location /redirect_me { \n       return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n        }\n        error_page 404 /custom_error.html;\n add_header X-Served-By $HOSTNAME;\n"
+
+sudo sed -i "s|${old_line}|${new_line}|g" /etc/nginx/sites-enabled/default 
 
 sudo service nginx reload
