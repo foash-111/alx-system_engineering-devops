@@ -5,6 +5,11 @@ package { 'nginx':
   provider => 'apt',
 }
 
+service { 'nginx':
+  ensure => running,
+  name   => 'nginx',
+}
+
 file { '/etc/nginx/sites-enabled/default':
   ensure  => file,
   content => "
