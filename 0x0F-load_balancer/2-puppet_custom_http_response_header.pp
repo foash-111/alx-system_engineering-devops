@@ -27,3 +27,8 @@ server {
 }
 ",
 }
+
+exec { 'reload nginx':
+  path    => ['/usr/sbin', '/usr/bin', '/bin'],
+  command => 'sudo service nginx reload'
+}
