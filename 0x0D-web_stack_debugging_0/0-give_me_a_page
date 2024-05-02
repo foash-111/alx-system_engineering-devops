@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # run apache using docker
-docker run -d -it apache2
+docker run -p 8080:80 -d -it apache2 --name apache2
+docker exec -it apache2
+sudo echo "<h1>Hello Holberton</h1>"> /var/www/html/index.html
+service apache2 restart
