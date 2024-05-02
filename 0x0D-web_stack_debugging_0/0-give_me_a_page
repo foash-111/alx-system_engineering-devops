@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# run apache using docker
+docker run -d -it hpptd
