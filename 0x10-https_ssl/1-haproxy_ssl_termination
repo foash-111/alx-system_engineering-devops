@@ -8,6 +8,7 @@ global
     user haproxy
     group haproxy
     daemon
+    ssl-dh-param-file /etc/haproxy/dhparams.pem
 
 # Default backend definition
 defaults
@@ -21,9 +22,10 @@ defaults
 
 # Frontend definition
 frontend http-in
-    bind *:443
+    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/www.foash.tech.pem
     mode http
-    http-request redirect scheme https unless { ssl_fc }
+    http-request redirect scheme https code 301 unless { ssl_fc }
     default_backend servers
 
 # Backend definition
