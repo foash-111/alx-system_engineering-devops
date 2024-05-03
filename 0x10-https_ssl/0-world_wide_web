@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION], come back with subdomain and ip.
+
+# pretty_dig() {
+#     if [ -n "$2" ]; then
+#         dig "$1"  | grep -A1 'ANSWER SECTION:' | rec_type=`awk 'NR==2 print{$3}'` && dest=`awk 'NR==2 print{$4}'`
+#         echo "The subdomain $2 is a $rec_type record and points to $dest"
+#     else 
+#         for i in  'www' 'lb-01' 'web-01' 'web-02';
+#         do
+#                 pretty_dig $1 $i
+#         done
+#     fi
+# }
+
+
+pretty_dig() {
+    if [ -n "$2" ]; then
+    
+       line=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'NR == 2')
+            # Extract the record type and destination using awk
+            rec_type=$(echo "$line" | awk '{print $4}')
+            dest=$(echo "$line" | awk '{print $5}')
+            # Print the extracted information
+            echo "The subdomain $2 is a $rec_type record and points to $dest"
+    else 
+        # Iterate over a list of subdomains
+        for i in "www" "lb-01" "web-01" "web-02"; do
+            # Call the function recursively for each subdomain
+            pretty_dig "$1" "$i"
+        done
+    fi
+}
+
+pretty_dig "$1" "$2"
