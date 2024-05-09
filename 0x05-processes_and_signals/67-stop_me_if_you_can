@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that stops anthor running process
+
+pkill -SIGTERM -f "7-highlander"

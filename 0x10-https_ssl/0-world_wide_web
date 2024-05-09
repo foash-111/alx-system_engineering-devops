@@ -31,5 +31,4 @@ pretty_dig() {
         done
     fi
 }
-
 pretty_dig "$1" "$2"

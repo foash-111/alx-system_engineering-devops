@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # error page with a massage
 sudo echo "<h1>Ceci n'est pas une page</h1>" | sudo tee -a /var/www/html/custom_error.html
+sudo echo "<h1>Hello World!</h1>" | sudo tee -a /var/www/html/index.html
 
 sudo apt-get update
 sudo apt-get -y install nginx
-sudo service nginx start
 sudo service nginx start
 
 
@@ -13,5 +13,4 @@ new_line="server_name foash.tech;\n        location /redirect_me { \n       retu
 
 sudo sed -i "s|${old_line}|${new_line}|g" /etc/nginx/sites-enabled/default 
 
-sudo service nginx restart
-service nginx reload
+sudo service nginx reload

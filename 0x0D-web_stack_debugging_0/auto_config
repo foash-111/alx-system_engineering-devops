@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#start docker, install image edit in it
+
+docker pull httpd
+docker run -d --name foash -p 8000:80 httpd
+docker exec -it --name foash /bin/bash
+
+echo "<h1>Hello Holberton</h1>" >> /usr/local/apache2/htdocs/index.html
+
+apt update
+apt install systemctl -y 
+apt install apache2 -y 
+systemctl restart apache2.service
