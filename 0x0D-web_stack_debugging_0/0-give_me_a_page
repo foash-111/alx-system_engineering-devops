@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 #start docker, install image edit in it
 service apache2 restart
-echo "apache2 is running"
