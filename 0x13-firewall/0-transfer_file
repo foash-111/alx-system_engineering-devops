@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Bash script that transfers a file from our client to a server:
+# to copy a file to remote server:
+# scp myfile.txt user@remote:/path/to/destination
+# scp -i /path/to/private/key myfile.txt user@remote:/path/to/destination
+
+# -n checks if the third argument ($3) is not empty.
+
+
+current_file="$1"
+
+    scp  -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $current_file "ubuntu@52.91.182.174:~/"

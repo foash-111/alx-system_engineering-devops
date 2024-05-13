@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# install and configure ufw (uncomplicated fire wall)
+sudo apt update
+sudo apt install ufw -y
+sudo ufw enable
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw status
