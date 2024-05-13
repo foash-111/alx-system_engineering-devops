@@ -9,4 +9,4 @@
 
 current_file="$1"
 
-    scp  -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $current_file "ubuntu@52.91.182.174:~/"
+    scp  -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $current_file "ubuntu@100.25.104.92:~/"
