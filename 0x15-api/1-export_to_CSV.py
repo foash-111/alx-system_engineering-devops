@@ -3,10 +3,9 @@
 make a get request and come back with json response
 """
 
-
+import csv
 import requests
 import sys
-import csv
 
 
 def main():
