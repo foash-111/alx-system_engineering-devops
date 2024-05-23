@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""make a get request and come back with json response"""
 
 import requests
 import sys
