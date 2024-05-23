@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
-"""make a get request and come back with json response"""
-
-
 import requests
 import sys
+
+"""make a get request and come back with json response"""
+
 
 response_todos = requests.get("https://jsonplaceholder.typicode.com/todos")
 response_users = requests.get("https://jsonplaceholder.typicode.com/users")
