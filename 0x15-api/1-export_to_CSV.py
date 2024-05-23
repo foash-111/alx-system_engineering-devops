@@ -33,7 +33,7 @@ def main():
         users_data = response_users.json()
         for x in users_data:
             if x.get('id') == int(sys.argv[1]):
-                user_name = x.get('name')
+                user_name = x.get('username')
 
     with open("{}.csv".format(sys.argv[1]), 'a+', newline='') as file:
         writer = csv.writer(file)
