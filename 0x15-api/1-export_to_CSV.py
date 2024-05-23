@@ -37,7 +37,7 @@ def main():
     with open("{}.csv".format(sys.argv[1]), 'a+', newline='') as file:
         writer = csv.writer(file)
         for x in my_list:
-            writer.writerow([sys.argv[1], user_name, ','.join(map(str, x))])
+            writer.writerow([{sys.argv[1]}, user_name, x[0], x[1]])
 
 
 if __name__ == "__main__":
