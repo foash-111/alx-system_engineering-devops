@@ -35,7 +35,7 @@ def main():
             if x.get('id') == int(sys.argv[1]):
                 user_name = x.get('name')
 
-    with open("{}.csv".format(sys.argv[1]), 'a', newline='') as file:
+    with open("{}.csv".format(sys.argv[1]), 'a+', newline='') as file:
         writer = csv.writer(file)
         for x in my_list:
             writer.writerow([sys.argv[1], user_name, ','.join(map(str, x))])
