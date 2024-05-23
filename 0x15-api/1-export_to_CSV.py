@@ -3,7 +3,7 @@
 make a get request and come back with json response
 """
 
-import csv
+
 import requests
 import sys
 
@@ -35,7 +35,6 @@ def main():
                 user_name = x.get('username')
 
     with open("{}.csv".format(sys.argv[1]), 'w+') as file:
-    
         for x in my_list:
             file.write(f'"{sys.argv[1]}","{user_name}","{x[0]}","{x[1]}"\n')
 
