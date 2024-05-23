@@ -34,10 +34,10 @@ def main():
             if x.get('id') == int(sys.argv[1]):
                 user_name = x.get('username')
 
-    with open("{}.csv".format(sys.argv[1]), 'a+', newline='') as file:
-        writer = csv.writer(file)
+    with open("{}.csv".format(sys.argv[1]), 'w+') as file:
+    
         for x in my_list:
-            writer.writerow([{sys.argv[1]}, user_name, x[0], x[1]])
+            file.write(f'"{sys.argv[1]}","{user_name}","{x[0]}","{x[1]}"\n')
 
 
 if __name__ == "__main__":
