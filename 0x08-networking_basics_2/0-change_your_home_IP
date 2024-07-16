@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 #chang ip address for my local machine and facebook.com
-old_line="127.0.0.1\tlocalhost"
-new_line="127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com"
 
-sudo sed -i "s|$old_line|$new_line|g"  /etc/hosts
+# Define the old and new lines
+old_line="127.0.0.1\tlocalhost"
+new_line="127.0.0.2\tlocalhost\n8.8.8.8\t\tfacebook.com\n"
+
+# Backup the original /etc/hosts file
+sudo cp /etc/hosts /etc/hosts.bak
+
+# Use sed to replace the old line with the new line in the /etc/hosts file
+sudo sed -i "s/$old_line/$new_line/" /etc/hosts
+
+# Verify the changes
+echo "Updated /etc/hosts file:"
+cat /etc/hosts
 
 
 #192.168.1.2	localhost
