@@ -7,7 +7,6 @@
 # sudo sed -i "s/$old_line/$new_line/" /etc/hosts
 
 # Backup the original /etc/hosts file
-sudo cp /etc/hosts /etc/hosts.old
 
 # Use sed to replace the old line with the new line in the /etc/hosts file
 echo "127.0.0.2  	localhost" > /etc/hosts.old
