@@ -7,4 +7,11 @@
 # 10.0.2.15$
 # 127.0.0.1$
 
+
+# You can use grep to select a specific line and then use awk to extract the second field based on space as a separator. Here’s a combined command to achieve this
+
+# Run ifconfig to get the network configuration details.
+# Use grep to find the line containing the inet keyword.
+# Use awk to print the second field.
+
 ifconfig | grep -w 'inet' | awk '{print $2}'
