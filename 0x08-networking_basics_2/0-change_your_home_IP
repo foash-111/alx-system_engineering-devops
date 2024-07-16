@@ -11,9 +11,6 @@ sudo cp /etc/hosts /etc/hosts.bak
 # Use sed to replace the old line with the new line in the /etc/hosts file
 sudo sed -i "s/$old_line/$new_line/" /etc/hosts
 
-# Verify the changes
-echo "Updated /etc/hosts file:"
-cat /etc/hosts
 
 
 #192.168.1.2	localhost
