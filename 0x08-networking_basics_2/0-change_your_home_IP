@@ -3,6 +3,6 @@
 old_line="127.0.0.1       localhost"
 new_line="127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com"
 
-sudo sed -i "s ${old_line}|${new_line}|g"  /etc/hosts
+sudo sed -i "s $old_line|$new_line|g"  /etc/hosts
 #192.168.1.2	localhost
 #8.8.8.8		facebook.com
